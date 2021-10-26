@@ -1,6 +1,5 @@
 <div class="d-flex flex-column justify-content-start mb-3 mr-3 align-items-center">
-  <p class="mt-2 mb-2" style="font-weight: bold;">user-list.component</p>
-  <user-single></user-single>
-  <user-single></user-single>
-  <user-single></user-single>
+  <div class="pt-4 text-center" *ngFor="let user of users">
+    <img src={{user.profilePhotoUrl}} style="width: 70px; border-radius: 50px;"><p>{{user.name}} {{user.surname}} </p>
+  </div>
 </div>
