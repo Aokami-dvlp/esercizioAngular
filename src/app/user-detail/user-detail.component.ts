@@ -1,4 +1,6 @@
+import { obj } from '../../../Typescript/Esercizio1';
 import { Component, OnInit } from '@angular/core';
+import { DatePipe } from '@angular/common'
 
 @Component({
   selector: 'user-detail',
@@ -7,7 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserDetailComponent implements OnInit {
 
-  constructor() { }
+  user = obj;
+  firstCompany = this.user.companies?.find(item => item.id === 148979);
+  secondCompany = this.user.companies?.find(item => item.id === 123123);
+
+  constructor(){}
 
   ngOnInit(): void {
   }
