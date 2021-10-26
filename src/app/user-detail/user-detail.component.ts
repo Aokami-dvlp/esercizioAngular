@@ -1,6 +1,5 @@
 import { obj } from '../../../Typescript/Esercizio1';
 import { Component, OnInit } from '@angular/core';
-import { DatePipe } from '@angular/common'
 
 @Component({
   selector: 'user-detail',
