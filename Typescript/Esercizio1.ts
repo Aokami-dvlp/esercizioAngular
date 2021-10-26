@@ -18,17 +18,17 @@ export interface Object {
     age?: number;
     dateOfBirth?: string;
     address?: Address;
-    role?: Role;
+    role?: Role;           
     username?: string;
     profilePhotoUrl?: string;
     companies?: Companies[];
-    gender?: Gender;
+    gender?: Gender;            
 }
 
 interface Address {
     city: string;
     street: string;
-    postalCode: string;
+    postalCode: string; 
 }
 
 interface Companies {
@@ -38,7 +38,7 @@ interface Companies {
     location: Address;
 }
 
-export const obj: Object = {
+const obj: Object = {
     id: 3487,
     name: 'Mario',
     surname: 'Rossi',
