@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Object } from 'Typescript/Esercizio1'
 
 
 @Component({
@@ -7,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-single.component.css']
 })
 export class UserSingleComponent implements OnInit {
+
+@Input() user!:Object;
 
   constructor() { }
 
