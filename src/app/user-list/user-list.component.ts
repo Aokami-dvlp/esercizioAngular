@@ -8,7 +8,7 @@ import { Object, Role, Gender } from 'Typescript/Esercizio1'
 })
 export class UserListComponent implements OnInit {
 
-users= [
+users:Object[]= [
 	{
       id: 3487,
       name: 'Mario',
