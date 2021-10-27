@@ -43,7 +43,7 @@ export const obj: Object = {
     name: 'Mario',
     surname: 'Rossi',
     age: 25,
-    dateOfBirth: '1995-14-12',
+    dateOfBirth: '12-14-1995',
     address: {
         city: 'Roma',
         street: 'Via roma 10',
