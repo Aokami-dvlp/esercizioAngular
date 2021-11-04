@@ -1,4 +1,4 @@
-<div class="d-flex flex-column justify-content-center align-items-center">
+<div class="d-flex flex-column justify-content-center align-items-center" [ngClass]="{'border-danger' : user.role == 'staff', 'border-info' : user.role == 'admin', 'border-warning' : user.role == 'manager'}">
   <img src={{user.profilePhotoUrl}} style="width: 60px; border-radius: 50px;"><p><strong>{{user.name}} {{user.surname}}</strong> {{user.age}} {{user.address?.city}} </p>
   <button class="btn-danger" (click)="removeUser(user)">Remove</button>
 </div>
