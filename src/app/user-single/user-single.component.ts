@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Object } from 'Typescript/Esercizio1'
 
 
@@ -11,9 +11,15 @@ export class UserSingleComponent implements OnInit {
 
 @Input() user!:Object;
 
-  constructor() { }
+@Output() removedUser = new EventEmitter<Object>();
 
-  ngOnInit(): void {
-  }
+constructor() { }
+
+ngOnInit(): void {
+}
+
+removeUser(user: Object): void {
+  this.removedUser.emit(user);
+}
 
 }

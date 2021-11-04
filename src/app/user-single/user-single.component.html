@@ -1,3 +1,4 @@
-<div>
-  <img src={{user.profilePhotoUrl}} style="width: 70px; border-radius: 50px;"><p><strong>{{user.name}} {{user.surname}}</strong> {{user.age}} {{user.address?.city}} </p>
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <img src={{user.profilePhotoUrl}} style="width: 60px; border-radius: 50px;"><p><strong>{{user.name}} {{user.surname}}</strong> {{user.age}} {{user.address?.city}} </p>
+  <button class="btn-danger" (click)="removeUser(user)">Remove</button>
 </div>
