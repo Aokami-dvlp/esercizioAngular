@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Object, Role, Gender } from 'Typescript/Esercizio1'
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { User, Role, Gender } from '../models/User'
 
 @Component({
   selector: 'user-list',
@@ -8,7 +8,10 @@ import { Object, Role, Gender } from 'Typescript/Esercizio1'
 })
 export class UserListComponent implements OnInit {
 
-users:Object[] = [
+@Output() showedUser = new EventEmitter<User>();
+
+
+users:User[] = [
 	{
       id: 3487,
       name: 'Mario',
@@ -59,11 +62,13 @@ users:Object[] = [
     }
 ];
 
-  removeUser(user: Object): void {
+  removeUser(user: User): void {
     const index = this.users.indexOf(user);
     this.users.splice(index, 1);
   }
-
+  showUser(user: User): void{
+    this.showedUser.emit(user)
+  }
 
   constructor() { }
 

@@ -1,5 +1,5 @@
 <div class="d-flex flex-row flex-wrap justify-content-center align-items-center">
   <p class="text-center mt-2" style="width: 100%; font-weight: bold;">user-container.component</p>
-<user-list></user-list>
-<user-detail></user-detail>
+<user-list (showedUser)="showUser($event)"></user-list>
+<user-detail *ngIf="user" [user]="user" (closedDetail)="closeDetail()"></user-detail>
 </div>

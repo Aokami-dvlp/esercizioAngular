@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '../models/User';
 
 @Component({
   selector: 'user-container',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserContainerComponent implements OnInit {
 
+  user?:User;
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  showUser(user:User){
+    this.user = user;
+  }
+
+  closeDetail(){
+    this.user = undefined;
+  }
 }

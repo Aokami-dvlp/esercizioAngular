@@ -1,6 +1,5 @@
-import { obj } from '../../../Typescript/Esercizio1';
-import { Component, OnInit } from '@angular/core';
-import { DatePipe } from '@angular/common'
+import { User } from './../models/User';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'user-detail',
@@ -9,13 +8,15 @@ import { DatePipe } from '@angular/common'
 })
 export class UserDetailComponent implements OnInit {
 
-  user = obj;
-  firstCompany = this.user.companies?.find(item => item.id === 148979);
-  secondCompany = this.user.companies?.find(item => item.id === 123123);
+@Input() user?:User;
+@Output() closedDetail = new EventEmitter<User>();
 
   constructor(){}
 
   ngOnInit(): void {
   }
 
+  closeDetail(){
+    this.closedDetail.emit();
+  }
 }

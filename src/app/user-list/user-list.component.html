@@ -1,7 +1,7 @@
 <div class="d-flex flex-column mb-3 mr-3">
   <ol *ngIf="users.length > 0; else noUsers">
   <li class="pt-4 text-center" *ngFor="let user of users">
-    <user-single [user]="user" (removedUser)="removeUser($event)"></user-single>
+    <user-single [user]="user" (removedUser)="removeUser($event)" (showedUser)="showUser($event)"></user-single>
   </li>
 </ol>
 </div>

@@ -1,6 +1,5 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import { Object } from 'Typescript/Esercizio1'
-
+import { User } from "../models/User"
 
 @Component({
   selector: 'user-single',
@@ -9,17 +8,23 @@ import { Object } from 'Typescript/Esercizio1'
 })
 export class UserSingleComponent implements OnInit {
 
-@Input() user!:Object;
+@Input() user!:User;
 
-@Output() removedUser = new EventEmitter<Object>();
+@Output() removedUser = new EventEmitter<User>();
+@Output() showedUser = new EventEmitter<User>();
+
 
 constructor() { }
 
 ngOnInit(): void {
 }
 
-removeUser(user: Object): void {
+removeUser(user: User): void {
   this.removedUser.emit(user);
+}
+
+showUser(user: User): void {
+  this.showedUser.emit(user);
 }
 
 }
