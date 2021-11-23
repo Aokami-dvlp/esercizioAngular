@@ -8,7 +8,7 @@ const routes: Routes = [
   {path: 'users', component: UserContainerComponent},
   {path: 'orders', component: OrderContainerComponent},
   {path: '', component: UserContainerComponent},
-   {path: '**', component:NotFoundComponent},
+  {path: '**', component:NotFoundComponent},
 ]
 
 @NgModule({
