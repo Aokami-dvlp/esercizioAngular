@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 export class CounterService {
 
 counter:number = 0;
+value:number = 0;
 
 show(){
   if (this.counter >= 0) {
@@ -14,12 +15,12 @@ show(){
   }
 }
 
-add(value:number){
-  this.counter += value;
+add():number{
+  return this.counter += this.value;
 }
 
-sub(value:number){
-  this.counter -= value;
+sub():number{
+  return this.counter -= this.value;
 }
   constructor() { }
 }

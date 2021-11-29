@@ -1,0 +1,5 @@
+<div class="d-flex justify-content-around">
+<button class="btn btn-primary" (click)="counter.sub()"> - {{counter.value}}</button>
+<input class="text-center" type="number" [(ngModel)]="counter.value" placeholder="Inserire valore">
+<button class="btn btn-primary" (click)="counter.add()"> + {{counter.value}} </button>
+</div>
