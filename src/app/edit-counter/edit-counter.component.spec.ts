@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { OrderSingleComponent } from './order-single.component';
+import { EditCounterComponent } from './edit-counter.component';
 
-describe('OrderSingleComponent', () => {
-  let component: OrderSingleComponent;
-  let fixture: ComponentFixture<OrderSingleComponent>;
+describe('EditCounterComponent', () => {
+  let component: EditCounterComponent;
+  let fixture: ComponentFixture<EditCounterComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ OrderSingleComponent ]
+      declarations: [ EditCounterComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(OrderSingleComponent);
+    fixture = TestBed.createComponent(EditCounterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
