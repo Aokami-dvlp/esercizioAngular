@@ -1,25 +1,26 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({providedIn: 'root'})
 export class CounterService {
 
 private counter:number = 0;
+counterSubject = new BehaviorSubject<number>(this.counter);
 
-show(){
-  if (this.counter >= 0) {
-    return this.counter
+show(): Observable<number> {
+  return this.counterSubject;
+}
+
+add(value:number = 1):void{
+  this.counterSubject.next(this.counter += value);
+}
+
+sub(value:number = 1):void{
+  if((this.counter -= value) < 0){
+    alert("Non puoi andare sotto zero")
   } else {
-    this.counter = 0;
-    return 'Errore'
+    this.counterSubject.next(this.counter -= value)
   }
-}
-
-add(value:number):number{
-  return this.counter += value;
-}
-
-sub(value:number):number{
-  return this.counter -= value;
 }
   constructor() { }
 }

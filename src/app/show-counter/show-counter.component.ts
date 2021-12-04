@@ -8,14 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShowCounterComponent implements OnInit {
 
+counter?:number;
+
   constructor(private counterService:CounterService) {
   }
 
   ngOnInit(): void {
-  }
-
-  show():number|string{
-    return  this.counterService.show();
+    this.counterService.show().subscribe(
+      (data) => this.counter = data,
+    );
   }
 
 }
