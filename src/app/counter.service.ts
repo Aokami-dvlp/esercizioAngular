@@ -14,12 +14,12 @@ show(){
   }
 }
 
-add(value:number):number{
-  return this.counter += value;
+add(value:number):void{
+  this.counter += value;
 }
 
-sub(value:number):number{
-  return this.counter -= value;
+sub(value:number):void{
+  this.counter -= value;
 }
   constructor() { }
 }
