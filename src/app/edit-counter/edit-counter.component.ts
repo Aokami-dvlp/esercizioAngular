@@ -8,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditCounterComponent implements OnInit {
 
-  constructor(public counter:CounterService) { }
+value:number = 1;
+
+  constructor(private counterService:CounterService) { }
 
   ngOnInit(): void {
   }
 
+  add(value:number):void{
+    this.counterService.add(value);
+  }
+
+  sub(value:number):void{
+    this.counterService.sub(value);
+  }
 }
