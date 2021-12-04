@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShowCounterComponent implements OnInit {
 
-counter?:number;
+counter:number = 0;
 
   constructor(private counterService:CounterService) {
   }

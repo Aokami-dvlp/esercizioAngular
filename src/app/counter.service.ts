@@ -8,7 +8,6 @@ private counter:number = 0;
 counterSubject = new Subject<number>();
 
 show(): Observable<number> {
-  this.counterSubject.subscribe((data) => data = this.counter);
   return this.counterSubject;
 }
 
@@ -17,10 +16,10 @@ add(value:number):void{
 }
 
 sub(value:number):void{
-  if((this.counter -= value) < 0){
+  if(this.counter < value){
     alert("Non puoi andare sotto zero")
   } else {
-    this.counterSubject.next(this.counter);
+    this.counterSubject.next(this.counter -= value);
   }
 }
   constructor() { }
