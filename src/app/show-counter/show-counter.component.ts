@@ -15,7 +15,7 @@ counter?:number;
 
   ngOnInit(): void {
     this.counterService.show().subscribe(
-      (data) => this.counter = data,
+      (data) => this.counter = data
     );
   }
 
