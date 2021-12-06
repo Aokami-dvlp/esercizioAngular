@@ -8,19 +8,23 @@ private counter:number = 0;
 counterSubject = new BehaviorSubject<number>(this.counter);
 
 show(): Observable<number> {
-  return this.counterSubject;
+  return this.counterSubject.asObservable();
 }
 
-add(value:number):void{
+add(value:number = 1):void{
   this.counterSubject.next(this.counter += value);
 }
 
-sub(value:number):void{
+sub(value:number = 1):void{
   if(this.counter < value){
     alert("Non puoi andare sotto zero")
   } else {
     this.counterSubject.next(this.counter -= value)
   }
 }
-  constructor() { }
+  constructor() {
+    this.show().subscribe(
+      (data) => this.counter = data
+    )
+  }
 }
