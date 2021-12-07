@@ -22,10 +22,13 @@ export class ShopComponent implements OnInit {
 
   this.BeerService.getById().subscribe(
     (data) => this.beerID = data
-  );
+  )
+  .unsubscribe
   }
 
   getById(id:number){
-    return this.BeerService.getById(id)
-  }
+    this.BeerService.getById(id).subscribe(
+      (data) => this.beerID = data
+  )
+}
 }
