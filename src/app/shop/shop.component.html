@@ -1,6 +1,31 @@
-<div class="d-flex flex-column justify-content-center align-items-center m-3 w-25" *ngFor="let beer of beers">
+<section class="d-flex">
+<div class="d-flex flex-column justify-content-center align-items-center m-3" *ngFor="let beer of beers">
   <p>{{beer.id}}</p>
   <p>{{beer.name}}</p>
   <p>{{beer.type}}</p>
   <p>{{beer.price | currency: 'EUR'}}</p>
 </div>
+</section>
+
+<section class="d-flex">
+<div class="d-flex flex-column justify-content-center align-items-center m-3">
+  <input class="mt-1" type="text" [(ngModel)]="id">
+  <p>{{beerID?.id}}</p>
+  <p>{{beerID?.name}}</p>
+  <p>{{beerID?.type}}</p>
+  <p>{{beerID?.price | currency: 'EUR'}}</p>
+  <button (click)="getById(id)">Cerca</button>
+</div>
+
+<div class="d-flex flex-column justify-content-center align-items-center m-3">
+  <select name="BeersName" id="beer">
+      <option *ngFor="let beer of beers"value={{beer.name}}>{{beer.name}}</option>
+  </select>
+
+  <select name="typeOfBeer" id="type">
+      <option value= "small">Small</option>
+      <option value= "medium">Medium</option>
+  </select>
+
+</div>
+</section>

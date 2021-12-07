@@ -1,8 +1,8 @@
 import { beerList } from './../models/mock-data';
 import { iBeer } from './../models/beer';
 import { Injectable } from '@angular/core';
-import { Observable, BehaviorSubject } from 'rxjs';
-import { find } from 'rxjs/operators'
+import { Observable, BehaviorSubject, pipe } from 'rxjs';
+import { map } from 'rxjs/operators'
 
 @Injectable({
   providedIn: 'root'
@@ -17,9 +17,10 @@ getAll():Observable<iBeer[]>{
   return this.beers$
 }
 
-getById(id:number){
+getById(id:number = 1){
+  console.log("getById in service called with id = " + id)
   return this.beers$.pipe(
-    find(beer => beer.id === id)
+    map(beer => beer.find(beer => beer.id === id))
   )
 }
 

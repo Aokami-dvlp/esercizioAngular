@@ -23,7 +23,7 @@ export const beerList: iBeer[] =
     {
         id: 4,
         type: 'small',
-        name: 'Nastro Azzurro',
+        name: 'Franziskaner',
         price: 1.30
     },
     {
