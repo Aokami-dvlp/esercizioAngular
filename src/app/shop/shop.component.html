@@ -1,0 +1,6 @@
+<div class="d-flex flex-column justify-content-center align-items-center m-3 w-25" *ngFor="let beer of beers">
+  <p>{{beer.id}}</p>
+  <p>{{beer.name}}</p>
+  <p>{{beer.type}}</p>
+  <p>{{beer.price | currency: 'EUR'}}</p>
+</div>
