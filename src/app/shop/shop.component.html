@@ -14,15 +14,19 @@
   <p>{{beerID?.name}}</p>
   <p>{{beerID?.type}}</p>
   <p>{{beerID?.price | currency: 'EUR'}}</p>
-  <button (click)="getById(id)">Cerca</button>
+  <button>Cerca</button>
 </div>
 
 <div class="d-flex flex-column justify-content-center align-items-center m-3">
+  <label for="beer"> Nome birra </label>
   <select name="BeersName" id="beer">
-      <option *ngFor="let beer of beers"value={{beer.name}}>{{beer.name}}</option>
+    <option></option>
+    <option *ngFor="let beer of beers"value={{beer.name}}>{{beer.name}}</option>
   </select>
 
+  <label class="mt-2" for="type">Grandezza</label>
   <select name="typeOfBeer" id="type">
+    <option></option>
       <option value= "small">Small</option>
       <option value= "medium">Medium</option>
   </select>
