@@ -15,7 +15,7 @@ export class ShopComponent implements OnInit {
   name?:string;
   type?:string;
   selectedBeer?:iBeer;
-  disabled:boolean = true;
+  disabled:boolean = false;
 
   constructor(private BeerService:BeerService) { }
 
