@@ -2,6 +2,7 @@ import { beerList } from './../models/mock-data';
 import { iBeer } from './../models/beer';
 import { Injectable } from '@angular/core';
 import { Observable, BehaviorSubject } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -17,8 +18,10 @@ getAll():Observable<iBeer[]>{
 }
 
 getById(id:number){
-  return this.beerSubject.value.find((beer) => beer.id === id)
-}
+  return this.beers$.pipe(
+    map((data) => data.find(beer => beer.id === id))
+  )
+  }
 
 getBySelect(name:string, type:string){
   return this.beerSubject.value.find((beer) => beer.name === name && beer.type === type)

@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs';
 import { BeerService } from './../beer.service';
 import { iBeer } from './../../models/beer';
 import { Component, OnInit } from '@angular/core';
@@ -15,18 +16,19 @@ export class ShopComponent implements OnInit {
   name?:string;
   type?:string;
   selectedBeer?:iBeer;
-  disabled:boolean = false;
 
   constructor(private BeerService:BeerService) { }
 
   ngOnInit(): void {
   this.BeerService.getAll().subscribe(
     (data:iBeer[]) => this.beers = data)
+
   }
 
-  selectedID(id:number):iBeer|undefined{
-   return this.beerID = this.BeerService.getById(id)
 
+  selectedID(id:number){
+    this.BeerService.getById(id).subscribe(
+      (data) => this.beerID = data).unsubscribe
   }
 
   selectBeer(name:string, type:string):iBeer|undefined{
