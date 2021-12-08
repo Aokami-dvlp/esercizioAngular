@@ -1,7 +1,6 @@
 import { BeerService } from './../beer.service';
 import { iBeer } from './../../models/beer';
 import { Component, OnInit } from '@angular/core';
-import { Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'shop',
@@ -12,19 +11,25 @@ export class ShopComponent implements OnInit {
 
   beers!: iBeer[];
   beerID?: iBeer;
-  id:number = 1;
+  id:number = 0;
+  name?:string;
+  type?:string;
+  selectedBeer?:iBeer;
+  disabled:boolean = true;
 
   constructor(private BeerService:BeerService) { }
 
   ngOnInit(): void {
-    setTimeout(() => {
-     this.BeerService.getAll().subscribe(
-    (data:iBeer[]) => this.beers = data)}, 500);
-
-
-  this.BeerService.getById(this.id).subscribe(
-    (data) => this.beerID = data
-  )
+  this.BeerService.getAll().subscribe(
+    (data:iBeer[]) => this.beers = data)
   }
 
+  selectedID(id:number):iBeer|undefined{
+   return this.beerID = this.BeerService.getById(id)
+
+  }
+
+  selectBeer(name:string, type:string):iBeer|undefined{
+    return this.selectedBeer = this.BeerService.getBySelect(name, type)
+  }
 }
