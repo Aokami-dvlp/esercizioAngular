@@ -28,13 +28,13 @@
 <div class="card flex-column justify-content-center align-items-center m-3">
   <label for="beer"> Nome birra </label>
   <select name="BeersName" id="beer" required [(ngModel)]="name">
-    <option disabled> Scegli una birra </option>
+    <option disabled selected> Scegli una birra </option>
     <option *ngFor="let beer of beers" value={{beer.name}}>{{beer.name}}</option>
   </select>
 
   <label class="mt-2" for="type">Grandezza</label>
   <select name="typeOfBeer" id="type" required [(ngModel)]="type">
-    <option disabled>Scegli formato</option>
+    <option disabled selected>Scegli formato</option>
       <option value= "small">Small</option>
       <option value= "medium">Medium</option>
   </select>
