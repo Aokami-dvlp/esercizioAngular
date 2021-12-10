@@ -31,7 +31,8 @@ export class ShopComponent implements OnInit {
       (data) => this.beerID = data).unsubscribe
   }
 
-  selectBeer(name:string, type:string):iBeer|undefined{
-    return this.selectedBeer = this.BeerService.getBySelect(name, type)
+  selectBeer(name:string, type:string){
+    this.BeerService.getBySelect(name, type).subscribe(
+      (data) => this.selectedBeer = data).unsubscribe
   }
 }
