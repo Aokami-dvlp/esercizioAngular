@@ -17,13 +17,15 @@ getAll():Observable<iBeer[]>{
   return this.beers$
 }
 
-getById(id:number){
+getById(id:number):Observable<iBeer|undefined>{
   return this.beers$.pipe(
-    map((data) => data.find(beer => beer.id === id))
+    map((data:iBeer[]) => data.find((beer:iBeer) => beer.id === id))
   )
   }
 
-getBySelect(name:string, type:string){
-  return this.beerSubject.value.find((beer) => beer.name === name && beer.type === type)
+getBySelect(name:string, type:string):Observable<iBeer|undefined>{
+  return this.beers$.pipe(
+    map((data:iBeer[]) => data.find((beer:iBeer) => beer.name === name && beer.type === type))
+  )
 }
 }
