@@ -1,0 +1,55 @@
+  <h1 class="text-center">Menù birre</h1>
+<section class="d-flex flex-wrap">
+<div class="spacer" *ngFor="let beer of beers">
+<div class="card d-flex flex-column justify-content-center align-items-center mt-3 ml-5">
+  <p>{{beer.name}}</p>
+  <p>{{beer.type}}</p>
+  <p>{{beer.price | currency: 'EUR'}}</p>
+</div>
+</div>
+</section>
+
+<br><br><br>
+
+<h1 class="text-center">Cerca birra</h1>
+<section class="d-flex justify-content-around align-items-center">
+<div class="card flex-column justify-content-center align-items-center m-3">
+  <input class="mt-1" type="number" [(ngModel)]="id">
+  <div *ngIf="beerID" class="text-center">
+  <p class="mt-3">{{beerID?.name}}</p>
+  <p>{{beerID?.type}}</p>
+  <p>{{beerID?.price | currency: 'EUR'}}</p>
+  </div>
+  <div *ngIf="!beerID" class="text-center">Ricerca una birra inserendo un ID da 1 a 10</div>
+  <button (click)="selectedID(id)">Cerca</button>
+</div>
+
+<form #form='ngForm' >
+<div class="card flex-column justify-content-center align-items-center m-3">
+  <label for="beer"> Nome birra </label>
+  <select name="BeersName" id="beer" required [(ngModel)]="name">
+    <option disabled selected> Scegli una birra </option>
+    <option *ngFor="let beer of beers" value={{beer.name}}>{{beer.name}}</option>
+  </select>
+
+  <label class="mt-2" for="type">Grandezza</label>
+  <select name="typeOfBeer" id="type" required [(ngModel)]="type">
+    <option disabled selected>Scegli formato</option>
+      <option value= "small">Small</option>
+      <option value= "medium">Medium</option>
+  </select>
+  <br>
+  <button (click)="selectBeer(name!, type!)" [disabled]="!form.valid">Cerca</button>
+</div>
+
+<div class="card flex-column justify-content-center align-items-center m-3">
+  <div *ngIf="selectedBeer" class="text-center">
+    <p class="mt-3">{{selectedBeer?.id}}</p>
+    <p>{{selectedBeer?.name}}</p>
+    <p>{{selectedBeer?.type}}</p>
+    <p>{{selectedBeer?.price | currency: 'EUR'}}</p>
+    </div>
+
+    <p *ngIf="!selectedBeer" class="text-center">Nessuna corrispondenza trovata</p>
+</div></form>
+</section>
